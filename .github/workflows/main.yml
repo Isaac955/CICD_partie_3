@@ -53,3 +53,11 @@ jobs:
         with:
           name: bundle
           path: ./dist
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@master
+        with:
+          name: bundle
