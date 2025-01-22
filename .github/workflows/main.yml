@@ -72,7 +72,7 @@ jobs:
         uses: actions/download-artifact@master
         with:
           name: bundle
-      - name: ssh key
+      - name: fill ssh key
         run: echo "id_ed25519" >  && chmod 400 ~/.ssh/id_ed25519
-      - name: files
+      - name: move files
         run: rsync -Pav -e "ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no" source/ user@server:destination
